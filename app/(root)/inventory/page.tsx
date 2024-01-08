@@ -1,8 +1,12 @@
 import IngredientTable from '@/components/shared/IngredientTable';
+import { auth } from '@clerk/nextjs';
 import React from 'react';
 import { Toaster } from 'react-hot-toast';
 
 const InventoryPage = () => {
+    const {sessionClaims} = auth();
+    const userId = sessionClaims?.userId as string;
+    console.log(sessionClaims);
     return (
         <>
             <Toaster />
